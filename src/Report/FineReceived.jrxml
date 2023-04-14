@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="400" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="978ba232-ea6d-4ffc-ad42-871bb91fa480">
+	<property name="ireport.zoom" value="1.0000000000000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MemberName" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MemId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fine" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="username" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * from member_records m Left join members_middle_name mm on mm.mid=m.mid WHERE m.mid=$P{MemId}]]>
+	</queryString>
+	<field name="mid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="First Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Last Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Gender" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="D.O.B" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nationality" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Contact" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Effective From" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Effective To" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Member Type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Library Deposit" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Fine" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Middle Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="68" y="0" width="436" height="32" uuid="6248c6f8-1b02-440b-b4d9-f90a4c91bf7c"/>
+				<textElement>
+					<font fontName="Calisto MT" size="24"/>
+				</textElement>
+				<text><![CDATA[LIBRARY MANAGEMENT SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="129" y="32" width="284" height="32" uuid="70c4cadf-26cd-4e15-bcd8-e99b1011a845"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calisto MT" size="22"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="96" height="24" uuid="8d9afe3c-f06a-4dc0-bd5f-dfb500374187"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Receipt No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="38" width="96" height="24" uuid="14b873b2-618a-47b4-a26d-fc898e915191"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Member Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="61" width="129" height="24" uuid="c773be7c-249e-483d-999f-9309bb38573f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Member Name:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="437" y="0" width="108" height="24" uuid="fd2cd3bf-59e4-46bd-bdf5-fef03cd5de26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="394" y="0" width="43" height="24" uuid="3b7ce1dc-4cbe-4d60-bd45-d0410caf82c3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="129" y="61" width="235" height="24" uuid="1c2cdb39-0116-4616-a70e-0d434f9ff924"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{First Name}+" "+$F{Middle Name}+" "+$F{Last Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="37" width="100" height="24" uuid="e294f840-97f1-4206-8682-e9c628171621"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="24" uuid="e3da5ae8-7d40-4c93-8e80-59feeac29dcb"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[S.N]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="0" width="261" height="24" uuid="e403683d-1200-4ddf-bc81-8c15d0ac0b5f"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="0" width="118" height="24" uuid="e94c2bb2-bd7e-4114-9612-1390cfbfe97b"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="0" width="118" height="24" uuid="0c2572e6-d890-4db8-bf85-0aa924309f18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="171" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="24" uuid="a38905b3-da8b-499e-8c40-bb2601fce13e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="0" width="261" height="24" uuid="2f473faf-23ff-4fae-b20a-5ef851fbf0db"/>
+				<box leftPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Late Fine]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="0" width="118" height="24" uuid="37e4f113-2075-4399-9b24-ea5925ec1867"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="309" y="0" width="118" height="24" uuid="971cba63-f805-4d44-9700-67bc80c42823"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fine}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="24" width="48" height="24" uuid="10638cda-908b-4f09-9cd0-f95eb69fbe87"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="24" width="261" height="24" uuid="c7f330bd-4d39-45a5-88b4-bf900bde0a6f"/>
+				<box leftPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="24" width="118" height="24" uuid="eacd0ffa-9674-4351-b602-6bdf78ea0097"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="309" y="24" width="119" height="24" uuid="9105afb9-f06e-4bcf-9971-585a98aac07e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fine}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="74" width="108" height="24" uuid="1bedb258-b6cc-4b51-8aaa-bab96fccfe47"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Received By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="106" width="108" height="24" uuid="4cb11455-ee63-426d-a5ff-7f5edeb86e92"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="418" y="74" width="137" height="24" uuid="8b65adbf-dcb4-43b0-b02c-ee87f8152ea7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{username}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="146" width="527" height="24" uuid="350dd902-e484-4082-ab76-97c83e4b0de1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Note: This receipt must be produce to refund the deposited amount.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

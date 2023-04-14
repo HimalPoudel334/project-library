@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="370" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7aea2395-8f01-4e7f-a4bc-479fde53ffe7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="From" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="To" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="toCustomer" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="username" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT SUM(`Library Deposit`),SUM(Fine) FROM member_records]]>
+	</queryString>
+	<field name="SUM(`Library Deposit`)" class="java.math.BigDecimal"/>
+	<field name="SUM(Fine)" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="0" width="436" height="32" uuid="3f7732ea-5fcf-461f-bba6-47c927f67398"/>
+				<textElement>
+					<font fontName="Calisto MT" size="24"/>
+				</textElement>
+				<text><![CDATA[LIBRARY MANAGEMENT SYSTEM]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="384" y="42" width="161" height="24" uuid="53925ac1-1ff8-41d1-be7e-eb8604074768"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="0" width="297" height="24" uuid="c1c805d3-9fd2-426f-a162-65a08e4d3492"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Income Expenses Details for the year]]></text>
+			</staticText>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="360" y="4" width="122" height="20" uuid="e1ccfe76-49bc-4643-8151-1f19e47e71c3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="192" height="24" uuid="6ba984b2-9479-4e91-ade6-2cb7123978df"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Income]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="0" width="173" height="24" uuid="b7fb1ea2-2e88-455a-bc67-dee1769a0ec7"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Expenses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="0" width="95" height="24" uuid="e73fbed4-b2b9-4c15-bf54-8c43ba3f3b9d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="95" height="24" uuid="bc98239f-554c-45cd-8566-6a1dd044d59c"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="194" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="192" height="24" uuid="fa2656cd-34ee-423a-b0b3-226329da2e24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Members Deposit]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="0" width="95" height="24" uuid="db2a0c7d-170f-4def-859a-cfe9bdd6ef6b"/>
+				<box rightPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(`Library Deposit`)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="95" height="24" uuid="ae3f104c-40b1-4798-a7d6-41d552107c76"/>
+				<box rightPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toCustomer}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="0" width="173" height="24" uuid="341138b9-23e3-4db8-a071-8e14e52c437d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Paid to Supplier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="192" height="24" uuid="7f10b6f3-e588-48e6-a2ce-367cf1ffc06d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Member Fine]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="24" width="95" height="24" uuid="7a162cbb-b115-44d1-9333-aa64e69d9335"/>
+				<box rightPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(Fine)}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="48" width="192" height="24" uuid="99cd26f3-0f94-4f19-862e-25428497641e"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="192" y="48" width="95" height="24" uuid="f848f5c3-61ec-4430-914c-ffa4b60e088e"/>
+				<box rightPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUM(`Library Deposit`)}.add( $F{SUM(Fine)})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="48" width="95" height="24" uuid="a271c9bc-bfbc-49fc-bf91-02effee9be9e"/>
+				<box rightPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{toCustomer}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="48" width="173" height="24" uuid="7460802d-b352-448f-ab69-165497818a00"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="24" width="95" height="24" uuid="c713dc7c-075a-41d2-bf20-599a1c8c93a3"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="82" width="95" height="24" uuid="ab51d27e-2100-4d07-a54e-144f0dce531d"/>
+				<box rightPadding="4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{SUM(`Library Deposit`)}.add($F{SUM(Fine)})).subtract($P{toCustomer})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="82" width="340" height="24" uuid="5c8ba490-fc89-4323-b182-ed08809b5a3f"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Remarks: The Income for the period is Rs: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="165" width="108" height="24" uuid="73310f63-a6dd-4697-be6e-d3ac03b173df"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="127" width="108" height="24" uuid="bff0d6f0-307b-4825-b6d2-6450a09e71e5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[Prepared By:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="127" width="110" height="24" uuid="cdb9d4d1-035d-4e27-b697-37427871e706"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{username}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

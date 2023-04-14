@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="370" pageHeight="200" whenNoDataType="AllSectionsNoDetail" columnWidth="330" leftMargin="20" rightMargin="20" topMargin="22" bottomMargin="20" uuid="6e1611af-6421-418e-bd5d-57c32082312b">
+	<property name="ireport.zoom" value="1.0000000000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="mid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="username" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT m.`mid`, `First Name`,mmn.`Middle Name`, `Last Name`, `Address`, `Contact`, `Effective To`,encode(mp.photo,'escape') as photo  FROM `member_records` m LEFT JOIN members_middle_name mmn on m.mid=mmn.mid LEFT JOIN members_photo mp on mp.mid=m.mid WHERE m.mid=$P!{mid}]]>
+	</queryString>
+	<field name="mid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="First Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Middle Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Last Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Contact" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Effective To" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="photo" class="java.lang.Object">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="-21" width="318" height="21" uuid="1bcadc18-70ce-4a39-96b6-0ee6989cf665"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="18"/>
+				</textElement>
+				<text><![CDATA[LIBRARY MANAGEMENT SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="0" width="144" height="20" uuid="83207928-93f6-4214-840d-cae5c861dca3"/>
+				<textElement>
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Membership Card]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="64" width="71" height="20" uuid="90c8089e-ccba-41c5-9f6c-77828542a14c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Contact: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="84" width="71" height="20" uuid="6701b928-8fd4-42bd-b6ae-760165e6001d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Valid till: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="71" y="4" width="126" height="20" uuid="9a5943d7-c385-4976-ac53-9d4d9ad0e812"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="24" width="199" height="20" uuid="8eaed3b2-0db0-4a2b-b2b5-157e272c6a21"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{First Name}+" "+$F{Middle Name}+" "+$F{Last Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="85" width="126" height="20" uuid="9b5f93cc-8694-4506-8e47-ebd6fae05b4f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Effective To}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="44" width="126" height="20" uuid="f613bb7b-6c8d-4057-a988-aacf424b4ce5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="65" width="126" height="20" uuid="b0229a5e-6b6c-4729-8230-cf6a0e184081"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Contact}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="2" width="100" height="1" uuid="0954e219-3d64-488b-9906-158f11a60e47"/>
+			</break>
+			<line>
+				<reportElement x="0" y="3" width="318" height="1" uuid="e6af03a5-2643-4f87-bc0d-9bfde4691782"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="104" width="89" height="20" uuid="8539edc0-df2d-48b7-85ac-1205bf1aff46"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Verified by: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="105" width="104" height="20" uuid="02e40390-9356-4da5-9e68-0f9660a2776f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{username}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="105" width="75" height="20" uuid="97eeeef1-ad73-4536-98a1-e1a850a5947e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<line>
+				<reportElement x="206" y="103" width="86" height="1" uuid="0f3a30dc-47c7-42f1-bc04-fc96b0705876"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="4" width="70" height="20" uuid="5f834538-e131-4089-9ece-97e72f955b99"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Id: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="71" height="20" uuid="1710a2ef-900a-4318-89bd-e9d1f1350115"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Name: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="71" height="20" uuid="77694a7b-8050-497a-8da6-7f531c1531cf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calisto MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Address: ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="217" y="44" width="73" height="50" uuid="b9cc07b2-c0a5-4454-bd90-14bc93a35b6f"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
